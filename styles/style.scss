@@ -1,0 +1,96 @@
+@import "mixins";
+@import "variables";
+@import "globals";
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../images/animals/chipmunk.jpg");
+  &__title {
+    font-family: $font_headings;
+    font-weight: bold;
+    z-index: 3;
+    color: $color_light;
+    font-size: 12vmin;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+  &__subtitle {
+    font-family: $font_body;
+    color: $color_light;
+    font-size: 4vmin;
+    line-height: 1;
+    z-index: 3;
+    margin-bottom: 70px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  &__overlay {
+    background-color: rgba($color_dark, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  &__button {
+    background: $color_dark;
+    border-radius: 5px;
+    font-family: $font_headings;
+    display: inline-block;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    z-index: 3;
+    text-decoration: none;
+    color: $color_light;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: box-shadow 300ms ease-in-out;
+    &:focus,
+    &:hover {
+      outline: 1px solid #fff;
+      outline-offset: -4px;
+    }
+  }
+}
+
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color_dark;
+  display: grid;
+  place-items: center;
+  &__img {
+    width: 70px;
+    height: 70px;
+    
+    animation: rotatin 3s ease-in-out infinite;
+    background-image: url("../images/wheel.png");
+    background-size: cover;
+  }
+}
+
+@keyframes rotatin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+    // opacity: 0;
+  }
+}
